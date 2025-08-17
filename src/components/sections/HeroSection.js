@@ -40,18 +40,11 @@ const HeroSection = () => {
             </div>
           </div>
           <div className="hero-image">
-            <svg 
-              width="350" 
-              height="350" 
-              viewBox="0 0 400 400" 
-              xmlns="http://www.w3.org/2000/svg"
+            <img 
+              src="/images/zehra-dp.png" 
+              alt="Dr. Zehra Hinganghatwala"
               className="profile-image"
-            >
-              <rect width="400" height="400" fill="#1E88E5" opacity="0.1"/>
-              <circle cx="200" cy="170" r="100" fill="#1E88E5" opacity="0.7"/>
-              <rect x="125" y="200" width="150" height="150" rx="20" fill="#1E88E5" opacity="0.7"/>
-              <text x="200" y="350" fontFamily="Arial" fontSize="16" fill="#1E88E5" textAnchor="middle">Dr. Zehra</text>
-            </svg>
+            />
             {/* Decorative dental icons */}
             <div className="dental-icon dental-icon-1">
               &#9784;
