@@ -1,0 +1,114 @@
+.clinical-skills-section {
+  padding: var(--spacing-xl) 0;
+  background-color: var(--section-background);
+}
+
+.skills-table-container {
+  margin-top: var(--spacing-lg);
+  overflow-x: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.skills-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border-color);
+  font-size: var(--font-size-base);
+  background-color: var(--background-color);
+}
+
+.skills-table th {
+  background: var(--gradient-primary);
+  color: var(--light-text);
+  text-align: left;
+  padding: var(--spacing-md);
+  font-weight: 600;
+  font-family: var(--font-secondary);
+}
+
+.skills-table th:first-child {
+  border-top-left-radius: var(--border-radius);
+}
+
+.skills-table th:last-child {
+  border-top-right-radius: var(--border-radius);
+}
+
+.skills-table tr:last-child td:first-child {
+  border-bottom-left-radius: var(--border-radius);
+}
+
+.skills-table tr:last-child td:last-child {
+  border-bottom-right-radius: var(--border-radius);
+}
+
+.skills-table td {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.3s ease;
+}
+
+.skills-table tr:hover td {
+  background-color: rgba(var(--primary-color-rgb), 0.03);
+}
+
+.skill-category {
+  font-weight: 600;
+  color: var(--primary-color);
+  width: 30%;
+  vertical-align: top;
+  border-right: 1px solid var(--border-color);
+}
+
+.skill-details {
+  line-height: 1.6;
+}
+
+.skill-item {
+  display: inline-block;
+  margin-right: var(--spacing-md);
+  margin-bottom: var(--spacing-xs);
+  position: relative;
+}
+
+.skill-item::before {
+  content: "•";
+  color: var(--secondary-color);
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.section-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto var(--spacing-lg);
+  color: var(--text-color-light);
+  font-size: var(--font-size-medium);
+}
+
+.clinical-icon {
+  color: var(--primary-color);
+  margin-right: var(--spacing-xs);
+}
+
+@media (max-width: 768px) {
+  .skills-table th, 
+  .skills-table td {
+    padding: var(--spacing-sm);
+  }
+  
+  .skill-category {
+    width: 40%;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-table {
+    font-size: var(--font-size-small);
+  }
+  
+  .section-description {
+    font-size: var(--font-size-base);
+  }
+}

@@ -1,0 +1,178 @@
+.dental-treatments-section {
+  padding: var(--spacing-xl) 0;
+  background-color: var(--alt-section-background);
+}
+
+.treatments-container {
+  margin-top: var(--spacing-xl);
+}
+
+.treatment-category {
+  margin-bottom: var(--spacing-xl);
+}
+
+.category-title {
+  color: var(--primary-color);
+  font-family: var(--font-secondary);
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-large);
+  position: relative;
+  display: inline-block;
+  padding-bottom: var(--spacing-xs);
+}
+
+.category-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 70%;
+  height: 2px;
+  background-color: var(--secondary-color);
+}
+
+.treatments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+.treatment-card {
+  background-color: var(--background-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: var(--spacing-lg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.treatment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.treatment-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 0;
+  background: var(--gradient-primary);
+  transition: height 0.3s ease;
+}
+
+.treatment-card:hover::before {
+  height: 100%;
+}
+
+.treatment-icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(var(--primary-color-rgb), 0.1);
+  border-radius: 50%;
+  margin-bottom: var(--spacing-md);
+}
+
+.treatment-title {
+  font-size: var(--font-size-medium);
+  color: var(--tertiary-color);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+}
+
+.treatment-description {
+  color: var(--text-color-light);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+}
+
+.approach-box {
+  margin-top: var(--spacing-xl);
+  background-color: var(--background-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  box-shadow: var(--box-shadow);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+.approach-content h3 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-md);
+  font-family: var(--font-secondary);
+}
+
+.approach-content p {
+  color: var(--text-color);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.7;
+}
+
+.approach-points {
+  list-style: none;
+  padding: 0;
+}
+
+.approach-points li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-color);
+}
+
+.approach-points li::before {
+  content: '✓';
+  color: var(--secondary-color);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.approach-image {
+  background-color: rgba(var(--primary-color-rgb), 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.approach-image svg {
+  width: 80%;
+  height: auto;
+}
+
+@media (max-width: 992px) {
+  .treatments-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .approach-box {
+    grid-template-columns: 1fr;
+  }
+  
+  .approach-image {
+    height: 250px;
+    order: -1;
+  }
+}
+
+@media (max-width: 576px) {
+  .treatments-grid {
+    grid-template-columns: 1fr;
+  }
+}

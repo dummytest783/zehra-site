@@ -1,0 +1,128 @@
+.footer {
+  background-color: var(--section-background);
+  padding: var(--spacing-xl) 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.footer-section {
+  margin-bottom: var(--spacing-lg);
+}
+
+.footer-title {
+  color: var(--primary-color);
+  font-size: var(--font-size-medium);
+  margin-bottom: var(--spacing-md);
+  font-family: var(--font-secondary);
+  font-weight: 600;
+}
+
+.footer-description {
+  color: var(--text-color);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.6;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.footer-links a:hover {
+  color: var(--primary-color);
+}
+
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.social-link {
+  display: inline-block;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.social-link:hover {
+  color: var(--primary-color);
+  transform: translateX(3px);
+}
+
+.footer-contact-info {
+  line-height: 1.8;
+}
+
+.footer-contact-info p {
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer-contact-label {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-right: var(--spacing-sm);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border-color);
+  color: var(--text-color-light);
+  font-size: var(--font-size-small);
+}
+
+.gdc-info {
+  margin-top: var(--spacing-sm);
+  font-size: 0.8rem;
+  color: var(--text-color-light);
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer {
+    padding: var(--spacing-lg) 0;
+  }
+}
