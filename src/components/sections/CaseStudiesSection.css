@@ -67,6 +67,8 @@
   box-shadow: var(--box-shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .case-item:hover {
@@ -140,15 +142,16 @@
 .image-label {
   position: absolute;
   color: white;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 6px 14px;
-  border-radius: 30px;
-  text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
-  font-size: var(--font-size-small);
-  font-weight: 700;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 4px 10px; /* Smaller padding */
+  border-radius: 20px; /* Smaller radius */
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
+  font-size: calc(var(--font-size-small) - 1px); /* Smaller font */
+  font-weight: 600;
   letter-spacing: 0.5px;
-  top: 20px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  top: 10px; /* Moved down from top edge */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
 }
 
 .before-label {
@@ -197,38 +200,7 @@
   font-weight: 600;
 }
 
-.dental-facts {
-  margin-top: var(--spacing-xl);
-  background-color: rgba(var(--primary-color-rgb), 0.05);
-  padding: var(--spacing-lg);
-  border-radius: var(--border-radius);
-  border-left: 4px solid var(--primary-color);
-}
-
-.facts-title {
-  color: var(--primary-color);
-  margin-bottom: var(--spacing-md);
-  font-weight: 600;
-  font-family: var(--font-secondary);
-}
-
-.facts-list {
-  list-style: none;
-  padding: 0;
-}
-
-.facts-list li {
-  position: relative;
-  padding-left: 20px;
-  margin-bottom: var(--spacing-sm);
-}
-
-.facts-list li::before {
-  content: "•";
-  color: var(--secondary-color);
-  position: absolute;
-  left: 0;
-}
+/* Removed dental-facts section */
 
 @media (max-width: 992px) {
   .case-grid {
@@ -251,9 +223,18 @@
     grid-template-columns: 1fr;
   }
   
-  /* Stack before/after vertically on mobile */
+  /* Move content above images on mobile */
+  .case-item {
+    flex-direction: column-reverse;
+  }
+  
+  .case-content {
+    border-radius: 8px 8px 0 0;
+  }
+  
   .before-after-simple {
     flex-direction: column;
+    border-radius: 0 0 8px 8px;
   }
   
   .image-side {

@@ -30,7 +30,6 @@ const Header = () => {
         <div className="logo">
           <div>
             <div className="logo-text">Dr. Zehra Hinganghatwala</div>
-            <div className="logo-title">Specialist in Restorative & Endodontic Dentistry</div>
           </div>
           <div className="header-gdc">GDC: 269585</div>
         </div>

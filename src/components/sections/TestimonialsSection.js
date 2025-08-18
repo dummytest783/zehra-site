@@ -2,67 +2,47 @@ import React from 'react';
 import './TestimonialsSection.css';
 
 const TestimonialsSection = () => {
-  // Placeholder testimonial data - would be replaced with real testimonials in production
+  // Real testimonial data from actual patients
   const testimonials = [
     {
       id: 'testimonial1',
-      text: "Dr. Zehra completely transformed my smile with porcelain veneers. Her attention to detail and genuine care for patient comfort made the whole experience surprisingly pleasant. I can't stop smiling now!",
+      text: "NEVER THOUGHT I'D LEAVE A REVIEW AFTER HAVING A TOOTH OUT BUT.... MY DENTIST, Zehra Hinganghatwala, WAS VERY ATTENTIVE, REASSURING AND EXPERTLY REMOVED MY TOOTH WITH THE MINIMUM OF FUSS: although I can't say I'm pain free, this was a far better experience than expected... IF YOU WANT EXPERT CARE, CAREFULLY EXPLAINED FROM AN UNDERSTANDING MEMBER OF STAFF YOU'D BE HARD PRESSED TO FIND ANYTHING BETTER - HIGHLY RECOMMENDED 😎👌👌 Zehra, thank you 🙏",
       rating: 5,
-      author: "Sarah Mitchell",
-      role: "Porcelain Veneers Patient",
-      initials: "SM",
+      author: "Mark Jellyman",
+      role: "Tooth Extraction Patient",
+      initials: "MJ",
       source: "Google Review",
       accentClass: "testimonial-accent-1"
     },
     {
       id: 'testimonial2',
-      text: "I've always been terrified of root canals, but Dr. Zehra made it completely painless. She explained everything clearly beforehand and checked on my comfort throughout the procedure. Outstanding care!",
+      text: "Was treated by Dr. Zehra Hinganghatwala on 8th Aug 2025. Had a new crown created and fitted. Excellent and pain free result. Lovely lady. Would highly recommend.",
       rating: 5,
-      author: "James Wilson",
-      role: "Root Canal Treatment Patient",
-      initials: "JW",
-      source: "NHS Feedback",
+      author: "Elizabeth Dawson",
+      role: "Crown Procedure Patient",
+      initials: "ED",
+      source: "Google Review",
       accentClass: "testimonial-accent-2"
     },
     {
       id: 'testimonial3',
-      text: "Dr. Hinganghatwala's expertise in restorative dentistry is exceptional. She replaced my old fillings with composite ones that look completely natural. Her gentle approach and perfectionism make her my dentist for life.",
+      text: "Dr Zehra Hinganghatwala was excellent she did a wonderful job encapsulated with care and consideration. Many thanks.",
       rating: 5,
-      author: "Emma Thompson",
-      role: "Restorative Treatment Patient",
-      initials: "ET",
-      source: "Direct Feedback",
+      author: "Anthony Sheppard",
+      role: "Dental Treatment Patient",
+      initials: "AS",
+      source: "Google Review",
       accentClass: "testimonial-accent-3"
     },
     {
       id: 'testimonial4',
-      text: "After putting off dental work for years due to anxiety, I'm so glad I found Dr. Zehra. She took the time to understand my concerns and made sure I was comfortable throughout my treatment. Her crown work is fantastic!",
+      text: "I had two extractions this morning performed by Zehra Hinganghtwala and i must say i never felt a thing, the assistant was very friendly and informative. I would highlyreccomend this surgery. 10/10",
       rating: 5,
-      author: "Robert Davies",
-      role: "Crown Procedure Patient",
-      initials: "RD",
+      author: "Max Hartley",
+      role: "Tooth Extraction Patient",
+      initials: "MH",
       source: "Google Review",
       accentClass: "testimonial-accent-1"
-    },
-    {
-      id: 'testimonial5',
-      text: "My dental bridge looks and feels like my natural teeth. Dr. Zehra's skill and dedication to getting everything perfect has given me back my confidence to smile. I highly recommend her for any dental work.",
-      rating: 5,
-      author: "Patricia Johnson",
-      role: "Dental Bridge Patient",
-      initials: "PJ",
-      source: "NHS Feedback",
-      accentClass: "testimonial-accent-2"
-    },
-    {
-      id: 'testimonial6',
-      text: "Regular check-ups with Dr. Zehra have transformed my dental health. She provides helpful advice and preventive care that has significantly reduced my dental issues. Her friendly, professional manner puts you at ease instantly.",
-      rating: 5,
-      author: "Michael Brown",
-      role: "Regular Preventive Care Patient",
-      initials: "MB",
-      source: "Direct Feedback",
-      accentClass: "testimonial-accent-3"
     }
   ];
 

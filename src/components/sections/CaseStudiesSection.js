@@ -24,6 +24,14 @@ const CaseStudiesSection = () => {
           treatment: 'Anterior Composite Bonding',
           beforeImage: '/images/dental-cases/composite-restoration-2-before.jpeg',
           afterImage: '/images/dental-cases/composite-restoration-2-after.jpeg'
+        },
+        {
+          id: 'composite-3',
+          title: 'Composite Restoration III',
+          description: 'Patient with multiple interproximal caries. Conservative treatment with composite restorations preserved tooth structure while restoring proper contact points.',
+          treatment: 'Multi-Surface Composite Fillings',
+          beforeImage: '/images/dental-cases/composite-restoration-3-before.jpeg',
+          afterImage: '/images/dental-cases/composite-restoration-3-after.jpeg'
         }
       ]
     },
@@ -34,7 +42,7 @@ const CaseStudiesSection = () => {
       cases: [
         {
           id: 'denture',
-          title: 'Complete Denture',
+          title: 'Denture',
           description: 'Elderly patient with severe tooth loss and compromised oral function. Complete dentures were crafted to restore aesthetics, function, and quality of life.',
           treatment: 'Complete Denture Fabrication',
           beforeImage: '/images/dental-cases/denture-before.jpeg',
@@ -50,11 +58,19 @@ const CaseStudiesSection = () => {
         },
         {
           id: 'resin-bridge',
-          title: 'Resin-Bonded Bridge',
+          title: 'Resin-Bonded Bridge I',
           description: 'Patient with a single missing anterior tooth. A conservative resin-bonded bridge was placed to restore aesthetics with minimal preparation of adjacent teeth.',
           treatment: 'Maryland Bridge',
           beforeImage: '/images/dental-cases/Resin-bonded-bridge-before.jpeg',
           afterImage: '/images/dental-cases/Resin-bonded-bridge-after.jpeg'
+        },
+        {
+          id: 'resin-bridge-1',
+          title: 'Resin-Bonded Bridge II',
+          description: 'Patient with congenitally missing lateral incisor. A minimally invasive resin-bonded bridge was placed to create a complete smile while preserving healthy tooth structure.',
+          treatment: 'Conservative Maryland Bridge',
+          beforeImage: '/images/dental-cases/resin-bonded-bridge-1-before.jpeg',
+          afterImage: '/images/dental-cases/resin-bonded-bridge-1-after.jpeg'
         }
       ]
     },
@@ -70,6 +86,14 @@ const CaseStudiesSection = () => {
           treatment: 'Porcelain Veneer Application',
           beforeImage: '/images/dental-cases/veneer-before.jpeg',
           afterImage: '/images/dental-cases/veneer-after.jpeg'
+        },
+        {
+          id: 'bonding',
+          title: 'Composite Bonding',
+          description: 'Patient with spacing between front teeth (diastema). Direct composite bonding was used to close the gaps and create a more harmonious smile.',
+          treatment: 'Direct Composite Bonding',
+          beforeImage: '/images/dental-cases/composite-bonding-before.jpeg',
+          afterImage: '/images/dental-cases/composite-bonding-after.jpeg'
         }
       ]
     }
@@ -224,16 +248,6 @@ const CaseStudiesSection = () => {
               </div>
             </div>
           ))}
-        </div>
-        
-        <div className="dental-facts">
-          <h3 className="facts-title">Did You Know?</h3>
-          <ul className="facts-list">
-            <li>Modern composite restorations can last 5-7 years and match the natural color of your teeth perfectly.</li>
-            <li>Complete dentures typically last between 5-10 years before needing replacement due to changes in the jawbone.</li>
-            <li>Dental bridges can last 10-15 years or longer with proper oral hygiene and regular dental check-ups.</li>
-            <li>Porcelain veneers are stain-resistant and can last 10-15 years with proper care.</li>
-          </ul>
         </div>
       </div>
     </section>
