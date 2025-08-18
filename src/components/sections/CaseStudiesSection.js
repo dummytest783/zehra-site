@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './CaseStudiesSection.css';
 
 const CaseStudiesSection = () => {
-  // Placeholder data for case studies - to be replaced with real cases later
+  // Real case study data with actual images
   const caseCategories = [
     {
       id: 'restorative',
@@ -10,92 +10,190 @@ const CaseStudiesSection = () => {
       description: 'Restoring damaged, decayed or missing teeth with materials that look and function like natural teeth.',
       cases: [
         {
-          id: 'case1',
-          title: 'Composite Restoration',
-          description: 'Patient presented with extensive decay on upper molars. Treatment involved removal of decay and composite filling restoration.',
-          treatment: 'Composite Resin Restoration',
-          beforeImage: '/images/dental-cases/placeholder-before.jpg',
-          afterImage: '/images/dental-cases/placeholder-after.jpg'
+          id: 'composite-1',
+          title: 'Composite Restoration I',
+          description: 'Patient presented with decay on upper molar. A tooth-colored composite restoration was placed to restore function and aesthetics while preserving natural tooth structure.',
+          treatment: 'Direct Composite Filling',
+          beforeImage: '/images/dental-cases/composite-restoration-1-before.jpeg',
+          afterImage: '/images/dental-cases/composite-restoration-1-after.jpeg'
         },
         {
-          id: 'case2',
-          title: 'Inlay Restoration',
-          description: 'Patient had old amalgam filling that needed replacement. An aesthetic ceramic inlay was used to restore function and appearance.',
-          treatment: 'Ceramic Inlay',
-          beforeImage: '/images/dental-cases/placeholder-before.jpg',
-          afterImage: '/images/dental-cases/placeholder-after.jpg'
+          id: 'composite-2',
+          title: 'Composite Restoration II',
+          description: 'Patient with fractured front tooth and discoloration. A direct composite restoration was placed to rebuild the tooth structure and improve aesthetics.',
+          treatment: 'Anterior Composite Bonding',
+          beforeImage: '/images/dental-cases/composite-restoration-2-before.jpeg',
+          afterImage: '/images/dental-cases/composite-restoration-2-after.jpeg'
+        }
+      ]
+    },
+    {
+      id: 'prosthetic',
+      title: 'Prosthetic Dentistry',
+      description: 'Replacing missing teeth with functional and aesthetic dental prostheses to restore oral health and confidence.',
+      cases: [
+        {
+          id: 'denture',
+          title: 'Complete Denture',
+          description: 'Elderly patient with severe tooth loss and compromised oral function. Complete dentures were crafted to restore aesthetics, function, and quality of life.',
+          treatment: 'Complete Denture Fabrication',
+          beforeImage: '/images/dental-cases/denture-before.jpeg',
+          afterImage: '/images/dental-cases/denture-after.jpeg'
+        },
+        {
+          id: 'bridge',
+          title: '4-Unit Dental Bridge',
+          description: 'Patient presented with multiple missing teeth in the posterior region. A 4-unit bridge was fabricated to restore function and prevent further tooth movement.',
+          treatment: 'Fixed Dental Bridge',
+          beforeImage: '/images/dental-cases/4-unit-bridge-before.jpeg',
+          afterImage: '/images/dental-cases/4-unit-bridge-after.jpeg'
+        },
+        {
+          id: 'resin-bridge',
+          title: 'Resin-Bonded Bridge',
+          description: 'Patient with a single missing anterior tooth. A conservative resin-bonded bridge was placed to restore aesthetics with minimal preparation of adjacent teeth.',
+          treatment: 'Maryland Bridge',
+          beforeImage: '/images/dental-cases/Resin-bonded-bridge-before.jpeg',
+          afterImage: '/images/dental-cases/Resin-bonded-bridge-after.jpeg'
         }
       ]
     },
     {
       id: 'cosmetic',
       title: 'Cosmetic Dentistry',
-      description: 'Enhancing the appearance of teeth, gums and smile through various procedures.',
+      description: 'Enhancing the appearance of teeth, gums and smile through various procedures to create a more aesthetically pleasing result.',
       cases: [
         {
-          id: 'case3',
+          id: 'veneer',
           title: 'Porcelain Veneers',
-          description: 'Patient was unhappy with the appearance of front teeth. A set of six porcelain veneers were placed to create a natural, beautiful smile.',
-          treatment: 'Porcelain Veneers',
-          beforeImage: '/images/dental-cases/placeholder-before.jpg',
-          afterImage: '/images/dental-cases/placeholder-after.jpg'
-        },
-        {
-          id: 'case4',
-          title: 'Teeth Whitening',
-          description: 'Patient desired a brighter smile. Professional whitening treatment was performed with excellent results.',
-          treatment: 'Professional Whitening',
-          beforeImage: '/images/dental-cases/placeholder-before.jpg',
-          afterImage: '/images/dental-cases/placeholder-after.jpg'
-        }
-      ]
-    },
-    {
-      id: 'endodontic',
-      title: 'Endodontic Treatments',
-      description: 'Treating the inside of the tooth including the pulp, root and surrounding tissues.',
-      cases: [
-        {
-          id: 'case5',
-          title: 'Root Canal Therapy',
-          description: 'Patient presented with severe pain from an infected tooth. Root canal therapy saved the tooth and eliminated pain.',
-          treatment: 'Root Canal Treatment',
-          beforeImage: '/images/dental-cases/placeholder-before.jpg',
-          afterImage: '/images/dental-cases/placeholder-after.jpg'
+          description: 'Patient was unhappy with discoloration and minor misalignment of front teeth. Porcelain veneers were placed to create a natural, beautiful smile transformation.',
+          treatment: 'Porcelain Veneer Application',
+          beforeImage: '/images/dental-cases/veneer-before.jpeg',
+          afterImage: '/images/dental-cases/veneer-after.jpeg'
         }
       ]
     }
   ];
 
-  // Placeholder function for slider interaction - would be implemented with real interaction in production
-  const handleSliderInteraction = () => {
-    console.log('Slider interaction would be implemented here');
-  };
-
-  // Create SVG placeholder images for demonstration
-  const createSVGPlaceholder = (color, text, isAfter) => {
-    return (
-      <svg
-        width="100%"
-        height="100%"
-        viewBox="0 0 400 250"
-        xmlns="http://www.w3.org/2000/svg"
-        className={`case-image ${isAfter ? 'after-image' : 'before-image'}`}
-      >
-        <rect width="400" height="250" fill={color} />
-        <text 
-          x="200" 
-          y="125" 
-          fontFamily="Arial" 
-          fontSize="24" 
-          fill="#ffffff" 
-          textAnchor="middle"
-          dominantBaseline="middle"
-        >
-          {text}
-        </text>
-      </svg>
-    );
+  // Handle slider interaction for before/after comparison
+  const [sliders, setSliders] = useState({});
+  
+  const initializeSlider = (caseId, sliderRef, handleRef, beforeImageRef) => {
+    if (!sliderRef.current || !handleRef.current || !beforeImageRef.current) return;
+    
+    const slider = sliderRef.current;
+    const handle = handleRef.current;
+    const beforeImage = beforeImageRef.current;
+    
+    let isDragging = false;
+    let startX = 0;
+    let startPercent = 50; // Start in the middle
+    
+    // Also add click functionality to the container for easier interaction
+    slider.addEventListener('click', (e) => {
+      const rect = slider.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const percent = (x / rect.width) * 100;
+      updateSliderPosition(percent);
+    });
+    
+    const updateSliderPosition = (percent) => {
+      // Clamp percentage between 0 and 100
+      const clampedPercent = Math.max(0, Math.min(100, percent));
+      
+      // Update slider handle position
+      handle.style.left = `${clampedPercent}%`;
+      
+      // Update clip path for before image
+      beforeImage.style.clipPath = `polygon(0 0, ${clampedPercent}% 0, ${clampedPercent}% 100%, 0 100%)`;
+      
+      // Update slider state
+      setSliders(prev => ({
+        ...prev,
+        [caseId]: clampedPercent
+      }));
+    };
+    
+    const onMouseDown = (e) => {
+      e.preventDefault();
+      isDragging = true;
+      startX = e.clientX;
+      
+      // Get current handle position as percentage
+      const rect = slider.getBoundingClientRect();
+      startPercent = ((handle.getBoundingClientRect().left - rect.left) / rect.width) * 100;
+      
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+      
+      // Change cursor style
+      handle.style.cursor = 'grabbing';
+    };
+    
+    const onMouseMove = (e) => {
+      if (!isDragging) return;
+      
+      const rect = slider.getBoundingClientRect();
+      const deltaX = e.clientX - startX;
+      const deltaPercent = (deltaX / rect.width) * 100;
+      
+      updateSliderPosition(startPercent + deltaPercent);
+    };
+    
+    const onMouseUp = () => {
+      isDragging = false;
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
+      
+      // Reset cursor style
+      handle.style.cursor = 'grab';
+    };
+    
+    const onTouchStart = (e) => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+      
+      // Get current handle position as percentage
+      const rect = slider.getBoundingClientRect();
+      startPercent = ((handle.getBoundingClientRect().left - rect.left) / rect.width) * 100;
+      
+      document.addEventListener('touchmove', onTouchMove);
+      document.addEventListener('touchend', onTouchEnd);
+    };
+    
+    const onTouchMove = (e) => {
+      if (!isDragging) return;
+      
+      const rect = slider.getBoundingClientRect();
+      const deltaX = e.touches[0].clientX - startX;
+      const deltaPercent = (deltaX / rect.width) * 100;
+      
+      updateSliderPosition(startPercent + deltaPercent);
+    };
+    
+    const onTouchEnd = () => {
+      isDragging = false;
+      document.removeEventListener('touchmove', onTouchMove);
+      document.removeEventListener('touchend', onTouchEnd);
+    };
+    
+    // Add event listeners
+    handle.addEventListener('mousedown', onMouseDown);
+    handle.addEventListener('touchstart', onTouchStart);
+    
+    // Set initial position with a slight delay to ensure images are loaded
+    setTimeout(() => {
+      updateSliderPosition(50);
+    }, 100);
+    
+    return () => {
+      handle.removeEventListener('mousedown', onMouseDown);
+      handle.removeEventListener('touchstart', onTouchStart);
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
+      document.removeEventListener('touchmove', onTouchMove);
+      document.removeEventListener('touchend', onTouchEnd);
+    };
   };
 
   return (
@@ -118,30 +216,10 @@ const CaseStudiesSection = () => {
               
               <div className="case-grid">
                 {category.cases.map((caseItem) => (
-                  <div key={caseItem.id} className="case-item">
-                    <div className="before-after-container">
-                      {/* Using SVG placeholders instead of images for the demo */}
-                      {createSVGPlaceholder('#1E88E5', 'Before', false)}
-                      {createSVGPlaceholder('#26A69A', 'After', true)}
-                      
-                      <div className="slider-handle"></div>
-                      <div 
-                        className="slider-button"
-                        role="slider"
-                        aria-label="Before and after comparison slider"
-                        tabIndex={0}
-                        onClick={handleSliderInteraction}
-                        onKeyDown={handleSliderInteraction}
-                      ></div>
-                      <div className="slider-label before-label">Before</div>
-                      <div className="slider-label after-label">After</div>
-                    </div>
-                    <div className="case-content">
-                      <h4 className="case-title">{caseItem.title}</h4>
-                      <p className="case-description">{caseItem.description}</p>
-                      <div className="treatment-used">Treatment: {caseItem.treatment}</div>
-                    </div>
-                  </div>
+                    <CaseItem 
+                      key={caseItem.id} 
+                      caseItem={caseItem}
+                    />
                 ))}
               </div>
             </div>
@@ -151,14 +229,50 @@ const CaseStudiesSection = () => {
         <div className="dental-facts">
           <h3 className="facts-title">Did You Know?</h3>
           <ul className="facts-list">
-            <li>Modern dental materials can last for over 15 years with proper care and maintenance.</li>
-            <li>Porcelain veneers are stain-resistant and can provide a natural-looking solution for discolored or misshapen teeth.</li>
-            <li>Root canal treatments have a success rate of more than 95% and can save teeth that would otherwise need to be extracted.</li>
-            <li>Regular dental check-ups can help detect problems early, preventing more extensive and costly treatments later.</li>
+            <li>Modern composite restorations can last 5-7 years and match the natural color of your teeth perfectly.</li>
+            <li>Complete dentures typically last between 5-10 years before needing replacement due to changes in the jawbone.</li>
+            <li>Dental bridges can last 10-15 years or longer with proper oral hygiene and regular dental check-ups.</li>
+            <li>Porcelain veneers are stain-resistant and can last 10-15 years with proper care.</li>
           </ul>
         </div>
       </div>
     </section>
+  );
+};
+
+// Simplified component for case item with simple side-by-side images
+const CaseItem = ({ caseItem }) => {
+  return (
+    <div className="case-item">
+      <div className="before-after-simple">
+        <div className="image-side before-side">
+          <div className="image-wrapper">
+            <img 
+              src={caseItem.beforeImage} 
+              alt={`${caseItem.title} before treatment`} 
+              className="full-image"
+            />
+          </div>
+          <div className="image-label before-label">Before</div>
+        </div>
+        
+        <div className="image-side after-side">
+          <div className="image-wrapper">
+            <img 
+              src={caseItem.afterImage} 
+              alt={`${caseItem.title} after treatment`} 
+              className="full-image"
+            />
+          </div>
+          <div className="image-label after-label">After</div>
+        </div>
+      </div>
+      <div className="case-content">
+        <h4 className="case-title">{caseItem.title}</h4>
+        <p className="case-description">{caseItem.description}</p>
+        <div className="treatment-used">Treatment: {caseItem.treatment}</div>
+      </div>
+    </div>
   );
 };
 
